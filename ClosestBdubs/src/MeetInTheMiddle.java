@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.Scanner;
 
 public class MeetInTheMiddle 
 {
@@ -25,12 +26,23 @@ public class MeetInTheMiddle
 	
 	public static void main(String[] args) throws IOException 
 	{
-		//Hard code Map and Set for now, figure out how to automate this later.
+		//Initialize Map of people and addresses using Scanner.
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter number of people.");
+		int numberOfPeople = Integer.parseInt(input.nextLine());
 		
-		friendsAddresses.put("Uday", "3 Diamond Ct");
-		friendsAddresses.put("Rhea", "44 Colemantown Dr");
-		friendsAddresses.put("Shlok", "30 Aspen Dr");
+		for(int x = 0; x < numberOfPeople; x++)
+		{
+			System.out.println("Enter person's name.");
+			String name = input.nextLine();
+			
+			System.out.println("Enter person's address in the format: [house number] [street name], [state], ex: 5 Main Street, NJ");
+			String address = input.nextLine();
+			
+			friendsAddresses.put(name, address);
+		}
 		
+		//Hard code Set for now, figure out how to automate this later.
 		bdubsLocations.add("Princeton");
 		bdubsLocations.add("Morganville");
 		bdubsLocations.add("North Brunswick");
@@ -52,6 +64,8 @@ public class MeetInTheMiddle
 		
 		//Cuz I'm a baller.
 		run();
+		input.close();
+		System.exit(0);
 	}
 	
 	private static void run()
